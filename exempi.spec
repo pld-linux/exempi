@@ -57,7 +57,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libexempi.so
 %{_libdir}/libexempi.la
-%{_includedir}/exempi-2.0/*
+%{_includedir}/exempi-2.0
 %{_prefix}/%{_lib}/pkgconfig/*.pc
 
 %files static
