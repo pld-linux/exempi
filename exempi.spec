@@ -1,4 +1,5 @@
 Summary:	An XMP support library
+Summary(pl.UTF-8):	Biblioteka obsługująca XMP
 Name:		exempi
 Version:	1.99.4
 Release:	1.1
@@ -6,30 +7,41 @@ License:	BSD
 Group:		Libraries
 Source0:	http://libopenraw.freedesktop.org/download/%{name}-%{version}.tar.gz
 # Source0-md5:	7efeb1c35d19016607911d4ba89c3745
-BuildConflicts:	boost-test-devel
 BuildRequires:	boost-devel
-BuildRequires:	expat
-BuildRequires:	gcc-c++
+BuildRequires:	expat-devel
+BuildRequires:	libstdc++-devel
+BuildConflicts:	boost-test-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-XMP parsing and IO library
+XMP parsing and IO library.
+
+%description -l pl.UTF-8
+Biblioteka do analizy oraz wejścia/wyjścia XMP.
 
 %package devel
-Summary:	Header files fox exempi
+Summary:	Header files for exempi
+Summary(pl.UTF-8):	Pliki nagłówkowe exempi
 Group:		Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for exempi.
 
+%description devel -l pl.UTF-8
+Pliki nagłówkowe exempi.
+
 %package static
-Summary:	Static exempi libraries
+Summary:	Static exempi library
+Summary(pl.UTF-8):	Statyczna biblioteka exempi
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
-Static exempi libraries.
+Static exempi library.
+
+%description static -l pl.UTF-8
+Statyczna biblioteka exempi.
 
 %prep
 %setup -q
@@ -43,11 +55,11 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%post	-p /sbin/ldconfig
-%postun	-p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
@@ -59,7 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libexempi.so
 %{_libdir}/libexempi.la
 %{_includedir}/exempi-2.0
-%{_prefix}/%{_lib}/pkgconfig/*.pc
+%{_pkgconfigdir}/*.pc
 
 %files static
 %defattr(644,root,root,755)
