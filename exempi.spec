@@ -7,8 +7,8 @@ License:	BSD
 Group:		Libraries
 Source0:	http://libopenraw.freedesktop.org/download/%{name}-%{version}.tar.gz
 # Source0-md5:	7efeb1c35d19016607911d4ba89c3745
-BuildRequires:	boost-devel
-BuildRequires:	expat-devel
+BuildRequires:	boost-devel >= 1.33.1
+BuildRequires:	expat-devel >= 1.95
 BuildRequires:	libstdc++-devel
 BuildConflicts:	boost-test-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -24,6 +24,8 @@ Summary:	Header files for exempi
 Summary(pl.UTF-8):	Pliki nagłówkowe exempi
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	expat-devel >= 1.95
+Requires:	libstdc++-devel
 
 %description devel
 Header files for exempi.
@@ -63,7 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README COPYING ChangeLog
+%doc AUTHORS COPYING ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libexempi.so.*.*
 
 %files devel
