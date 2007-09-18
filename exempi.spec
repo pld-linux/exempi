@@ -2,7 +2,7 @@ Summary:	An XMP support library
 Summary(pl.UTF-8):	Biblioteka obsługująca XMP
 Name:		exempi
 Version:	1.99.4
-Release:	1.1
+Release:	2
 License:	BSD
 Group:		Libraries
 Source0:	http://libopenraw.freedesktop.org/download/%{name}-%{version}.tar.gz
