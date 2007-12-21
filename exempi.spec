@@ -1,12 +1,12 @@
 Summary:	An XMP support library
 Summary(pl.UTF-8):	Biblioteka obsługująca XMP
 Name:		exempi
-Version:	1.99.4
-Release:	2
+Version:	1.99.5
+Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	http://libopenraw.freedesktop.org/download/%{name}-%{version}.tar.gz
-# Source0-md5:	7efeb1c35d19016607911d4ba89c3745
+# Source0-md5:	aa22ca8a84e0f768775dc2b22501822e
 BuildRequires:	boost-devel >= 1.33.1
 BuildRequires:	expat-devel >= 1.95
 BuildRequires:	libstdc++-devel
@@ -33,6 +33,17 @@ Header files for exempi.
 %description devel -l pl.UTF-8
 Pliki nagłówkowe exempi.
 
+%package samples
+Summary:	Sample exempi programs
+Summary(pl.UTF-8):	Przykładowe programy exempi
+Group:		Applications/Archiving
+
+%description samples
+Sample programs using exempi library
+
+%description devel -l pl.UTF-8
+Przykładowe programy używające biblioteki exempi
+
 %package static
 Summary:	Static exempi library
 Summary(pl.UTF-8):	Statyczna biblioteka exempi
@@ -54,8 +65,12 @@ Statyczna biblioteka exempi.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_bindir}
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+install samples/source/{dumpmainxmp,dumpxmp,xmpcoverage,xmpfilescoverage} $RPM_BUILD_ROOT%{_bindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -74,6 +89,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libexempi.la
 %{_includedir}/exempi-2.0
 %{_pkgconfigdir}/*.pc
+
+%files samples
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/*
 
 %files static
 %defattr(644,root,root,755)
