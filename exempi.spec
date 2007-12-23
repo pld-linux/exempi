@@ -33,17 +33,6 @@ Header files for exempi.
 %description devel -l pl.UTF-8
 Pliki nagłówkowe exempi.
 
-%package samples
-Summary:	Sample exempi programs
-Summary(pl.UTF-8):	Przykładowe programy exempi
-Group:		Applications/Archiving
-
-%description samples
-Sample programs using exempi library
-
-%description devel -l pl.UTF-8
-Przykładowe programy używające biblioteki exempi
-
 %package static
 Summary:	Static exempi library
 Summary(pl.UTF-8):	Statyczna biblioteka exempi
@@ -55,6 +44,17 @@ Static exempi library.
 
 %description static -l pl.UTF-8
 Statyczna biblioteka exempi.
+
+%package samples
+Summary:	Sample exempi programs
+Summary(pl.UTF-8):	Przykładowe programy exempi
+Group:		Applications/Archiving
+
+%description samples
+Sample programs using exempi library.
+
+%description devel -l pl.UTF-8
+Przykładowe programy używające biblioteki exempi.
 
 %prep
 %setup -q
@@ -90,10 +90,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/exempi-2.0
 %{_pkgconfigdir}/*.pc
 
-%files samples
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/*
-
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libexempi.a
+
+%files samples
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/*
