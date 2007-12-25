@@ -10,7 +10,6 @@ Source0:	http://libopenraw.freedesktop.org/download/%{name}-%{version}.tar.gz
 BuildRequires:	boost-devel >= 1.33.1
 BuildRequires:	expat-devel >= 1.95
 BuildRequires:	libstdc++-devel
-BuildConflicts:	boost-test-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -49,6 +48,7 @@ Statyczna biblioteka exempi.
 Summary:	Sample exempi programs
 Summary(pl.UTF-8):	Przykładowe programy exempi
 Group:		Applications/Archiving
+# doesn't require base, statically linked with exempi code
 
 %description samples
 Sample programs using exempi library.
@@ -60,7 +60,9 @@ Przykładowe programy używające biblioteki exempi.
 %setup -q
 
 %build
-%configure
+# configure fails on boost linking check
+%configure \
+	ax_cv_boost_unit_test_framework=no
 %{__make}
 
 %install
@@ -81,14 +83,15 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/libexempi.so.*.*
+%attr(755,root,root) %{_libdir}/libexempi.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libexempi.so.3
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libexempi.so
 %{_libdir}/libexempi.la
 %{_includedir}/exempi-2.0
-%{_pkgconfigdir}/*.pc
+%{_pkgconfigdir}/exempi-2.0.pc
 
 %files static
 %defattr(644,root,root,755)
