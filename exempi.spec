@@ -7,6 +7,7 @@ License:	BSD
 Group:		Libraries
 Source0:	http://libopenraw.freedesktop.org/download/%{name}-%{version}.tar.gz
 # Source0-md5:	8d72412c8a1e0330c4fa57da2d0ef96e
+URL:		http://libopenraw.freedesktop.org/wiki/Exempi
 BuildRequires:	boost-devel >= 1.33.1
 BuildRequires:	expat-devel >= 1.95
 BuildRequires:	libstdc++-devel
