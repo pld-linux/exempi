@@ -1,12 +1,12 @@
 Summary:	An XMP support library
 Summary(pl.UTF-8):	Biblioteka obsługująca XMP
 Name:		exempi
-Version:	2.0.2
+Version:	2.1.1
 Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	http://libopenraw.freedesktop.org/download/%{name}-%{version}.tar.gz
-# Source0-md5:	796aeac13eacefc8376a5b6562adf58f
+# Source0-md5:	62ecb5a01387b9f940a5429b3df67e65
 URL:		http://libopenraw.freedesktop.org/wiki/Exempi
 BuildRequires:	boost-devel >= 1.33.1
 BuildRequires:	expat-devel >= 1.95
