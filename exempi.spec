@@ -11,6 +11,7 @@ URL:		http://libopenraw.freedesktop.org/wiki/Exempi
 BuildRequires:	boost-devel >= 1.33.1
 BuildRequires:	expat-devel >= 1.95
 BuildRequires:	libstdc++-devel
+BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -26,6 +27,7 @@ Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	expat-devel >= 1.95
 Requires:	libstdc++-devel
+Requires:	zlib-devel
 
 %description devel
 Header files for exempi.
@@ -64,7 +66,8 @@ Przykładowe programy używające biblioteki exempi.
 # configure fails on boost linking check
 %configure \
 	ax_cv_boost_unit_test_framework=no
-%{__make}
+%{__make} \
+	V=1
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -83,7 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING ChangeLog NEWS README
+%doc AUTHORS COPYING ChangeLog NEWS README TODO
 %attr(755,root,root) %{_libdir}/libexempi.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libexempi.so.3
 
