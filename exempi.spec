@@ -56,7 +56,7 @@ Group:		Applications/Archiving
 %description samples
 Sample programs using exempi library.
 
-%description devel -l pl.UTF-8
+%description samples -l pl.UTF-8
 Przykładowe programy używające biblioteki exempi.
 
 %prep
