@@ -1,12 +1,12 @@
-Summary:	An XMP support library
-Summary(pl.UTF-8):	Biblioteka obsługująca XMP
+Summary:	An XMP metadata support library
+Summary(pl.UTF-8):	Biblioteka obsługująca metadane XMP
 Name:		exempi
-Version:	2.1.1
+Version:	2.2.0
 Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	http://libopenraw.freedesktop.org/download/%{name}-%{version}.tar.gz
-# Source0-md5:	62ecb5a01387b9f940a5429b3df67e65
+# Source0-md5:	cb789ba2b6ed78b864cc18cdc87f3b72
 URL:		http://libopenraw.freedesktop.org/wiki/Exempi
 BuildRequires:	boost-devel >= 1.33.1
 BuildRequires:	expat-devel >= 1.95
@@ -15,10 +15,10 @@ BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-XMP parsing and IO library.
+XMP metadata parsing and IO library.
 
 %description -l pl.UTF-8
-Biblioteka do analizy oraz wejścia/wyjścia XMP.
+Biblioteka do analizy oraz wejścia/wyjścia metadanych XMP.
 
 %package devel
 Summary:	Header files for exempi
@@ -65,9 +65,9 @@ Przykładowe programy używające biblioteki exempi.
 %build
 # configure fails on boost linking check
 %configure \
-	ax_cv_boost_unit_test_framework=no
-%{__make} \
-	V=1
+	ax_cv_boost_unit_test_framework=no \
+	--disable-silent-rules
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
