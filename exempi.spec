@@ -1,12 +1,12 @@
 Summary:	An XMP metadata support library
 Summary(pl.UTF-8):	Biblioteka obsługująca metadane XMP
 Name:		exempi
-Version:	2.2.0
-Release:	2
+Version:	2.2.1
+Release:	1
 License:	BSD
 Group:		Libraries
-Source0:	http://libopenraw.freedesktop.org/download/%{name}-%{version}.tar.gz
-# Source0-md5:	cb789ba2b6ed78b864cc18cdc87f3b72
+Source0:	http://libopenraw.freedesktop.org/download/%{name}-%{version}.tar.bz2
+# Source0-md5:	0f8e5832299224684a65847eedf8d1e4
 URL:		http://libopenraw.freedesktop.org/wiki/Exempi
 BuildRequires:	boost-devel >= 1.33.1
 BuildRequires:	expat-devel >= 1.95
@@ -87,8 +87,10 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog NEWS README TODO
+%attr(755,root,root) %{_bindir}/exempi
 %attr(755,root,root) %{_libdir}/libexempi.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libexempi.so.3
+%{_mandir}/man1/exempi.1*
 
 %files devel
 %defattr(644,root,root,755)
@@ -103,4 +105,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files samples
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/dumpmainxmp
+%attr(755,root,root) %{_bindir}/dumpxmp
+%attr(755,root,root) %{_bindir}/xmpcoverage
+%attr(755,root,root) %{_bindir}/xmpfilescoverage
