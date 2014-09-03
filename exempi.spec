@@ -1,12 +1,12 @@
 Summary:	An XMP metadata support library
 Summary(pl.UTF-8):	Biblioteka obsługująca metadane XMP
 Name:		exempi
-Version:	2.2.1
+Version:	2.2.2
 Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	http://libopenraw.freedesktop.org/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	0f8e5832299224684a65847eedf8d1e4
+# Source0-md5:	b55db1031a3b4609c2241f7fc870ce32
 URL:		http://libopenraw.freedesktop.org/wiki/Exempi
 BuildRequires:	boost-devel >= 1.33.1
 BuildRequires:	expat-devel >= 1.95
@@ -76,6 +76,9 @@ install -d $RPM_BUILD_ROOT%{_bindir}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libexempi.la
+
 install samples/source/{dumpmainxmp,dumpxmp,xmpcoverage,xmpfilescoverage} $RPM_BUILD_ROOT%{_bindir}
 
 %clean
@@ -95,7 +98,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libexempi.so
-%{_libdir}/libexempi.la
 %{_includedir}/exempi-2.0
 %{_pkgconfigdir}/exempi-2.0.pc
 
