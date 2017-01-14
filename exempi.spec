@@ -10,7 +10,7 @@ Source0:	https://libopenraw.freedesktop.org/download/%{name}-%{version}.tar.bz2
 URL:		https://libopenraw.freedesktop.org/wiki/Exempi
 BuildRequires:	boost-devel >= 1.33.1
 BuildRequires:	expat-devel >= 1.95
-BuildRequires:	libstdc++-devel
+BuildRequires:	libstdc++-devel >= 6:4.4
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -26,7 +26,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe exempi
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	expat-devel >= 1.95
-Requires:	libstdc++-devel
+Requires:	libstdc++-devel >= 6:4.4
 Requires:	zlib-devel
 
 %description devel
