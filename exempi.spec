@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	tests	# unit tests
+
 Summary:	An XMP metadata support library
 Summary(pl.UTF-8):	Biblioteka obsługująca metadane XMP
 Name:		exempi
@@ -8,7 +12,7 @@ Group:		Libraries
 Source0:	https://libopenraw.freedesktop.org/download/%{name}-%{version}.tar.bz2
 # Source0-md5:	bb7a06ef8bbf79a59e32562b198daefd
 URL:		https://libopenraw.freedesktop.org/wiki/Exempi
-BuildRequires:	boost-devel >= 1.33.1
+%{?with_tests:BuildRequires:	boost-devel >= 1.48.0}
 BuildRequires:	expat-devel >= 1.95
 BuildRequires:	libstdc++-devel >= 6:4.4
 BuildRequires:	zlib-devel
@@ -65,9 +69,13 @@ Przykładowe programy używające biblioteki exempi.
 %build
 # configure fails on boost linking check
 %configure \
-	ax_cv_boost_unit_test_framework=no \
-	--disable-silent-rules
+	--disable-silent-rules \
+	%{!?with_tests:--disable-unittest}
 %{__make}
+
+%if %{with tests}
+%{__make} check
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
