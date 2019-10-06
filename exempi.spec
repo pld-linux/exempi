@@ -5,13 +5,13 @@
 Summary:	An XMP metadata support library
 Summary(pl.UTF-8):	Biblioteka obsługująca metadane XMP
 Name:		exempi
-Version:	2.5.0
+Version:	2.5.1
 Release:	1
 License:	BSD
 Group:		Libraries
 #Source0Download: https://libopenraw.freedesktop.org/exempi/
 Source0:	https://libopenraw.freedesktop.org/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	e0976661e4a09b6206228c8b8b447b53
+# Source0-md5:	c32bcd9feed5a0c1523d5652ef1804b0
 URL:		https://libopenraw.freedesktop.org/exempi/
 %{?with_tests:BuildRequires:	boost-devel >= 1.48.0}
 BuildRequires:	expat-devel >= 1.95
