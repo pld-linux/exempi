@@ -68,6 +68,7 @@ Przykładowe programy używające biblioteki exempi.
 %setup -q
 
 %build
+cp -f /usr/share/automake/config.sub .
 # configure fails on boost linking check
 %configure \
 	--disable-silent-rules \
