@@ -13,6 +13,7 @@ Group:		Libraries
 Source0:	https://libopenraw.freedesktop.org/download/%{name}-%{version}.tar.bz2
 # Source0-md5:	c32bcd9feed5a0c1523d5652ef1804b0
 URL:		https://libopenraw.freedesktop.org/exempi/
+BuildRequires:	automake
 %{?with_tests:BuildRequires:	boost-devel >= 1.48.0}
 BuildRequires:	expat-devel >= 1.95
 BuildRequires:	libstdc++-devel >= 6:4.4
